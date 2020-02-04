@@ -10,6 +10,11 @@ attr_accessor :id, :name, :grade
 #   @grade = grade 
 # end 
 
+  def initialize(id=nil, name, grade)
+    @id, @name, @grade = id, name, grade
+
+  end
+
   def self.create(name:,grade:)
     student = Student.new(name, grade)
     student.save 
