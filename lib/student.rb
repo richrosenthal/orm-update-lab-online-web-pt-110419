@@ -53,16 +53,16 @@ end
     new_student = self.new
   end
 
-  def self.all
-     sql = <<-SQL
-      SELECT *
-      FROM students
-    SQL
+  # def self.all
+  #   sql = <<-SQL
+  #     SELECT *
+  #     FROM students
+  #   SQL
  
-     DB[:conn].execute(sql).map do |row|
-      self.new_from_db(row)
-    end
-  end
+  #   DB[:conn].execute(sql).map do |row|
+  #     self.new_from_db(row)
+  #   end
+  # end
   
   def save
   if self.id
@@ -81,11 +81,6 @@ end
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
-  
-
-
-  # Remember, you can access your database connection anywhere in this class
-  #  with DB[:conn]
 
 
 end
